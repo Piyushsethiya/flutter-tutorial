@@ -1,6 +1,8 @@
 // import 'dart:html';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main(){
   runApp(DemoApp());
@@ -13,7 +15,8 @@ class DemoApp extends StatelessWidget{
       title: "main working",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.blue
+          primarySwatch: Colors.green
+
       ),
       home: DashBoardScreen(),
     );
@@ -27,12 +30,16 @@ class DashBoardScreen extends StatefulWidget{
 
 class _DashBoardScreenState extends State<DashBoardScreen>{
 
+// portion of register
   var name = TextEditingController();
   var username = TextEditingController();
   var password = TextEditingController();
   var mobile_no = TextEditingController();
+//end portion
+
   @override
   Widget build(BuildContext context){
+  var time = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         title: Text("Register"),
@@ -41,134 +48,205 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
         foregroundColor: Colors.white,
 
       ),
-      body: Container(
-        color: Colors.cyan[50],
-        child: Center(
-          child: Container(
-            width: 300,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: name,
-                    decoration: InputDecoration(
-                      hintText: "Enter Name",
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.green,width: 4),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          // borderSide: BorderSide(color: Colors.yellow),
 
-                        ),
-                      prefixIcon: Icon(Icons.upcoming_sharp)
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    // enabled: false,
-                    controller: username,
-                    decoration: InputDecoration(
-                      hintText: "Enter Email",
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                        borderSide: BorderSide(color: Colors.green,width: 4),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          // color: Colors.amber,
-                          // width: 4,
-                        ),
-                        borderRadius: BorderRadius.circular(11),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                        borderSide: BorderSide(color: Colors.black54,width: 4),
-                      ),
-                      // suffixText: "Username Exits",
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.remove_red_eye, color: Colors.red,),
-                        onPressed: (){
+// register start page
+//       body: Container(
+//         color: Colors.cyan[50],
+//         child: Center(
+//           child: Container(
+//             width: 300,
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 CircleAvatar(
+//                   radius: 50,
+//                   backgroundImage: AssetImage('assets/images/temp_logo.jpg'),
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: TextField(
+//                     controller: name,
+//                     decoration: InputDecoration(
+//                       hintText: "Enter Name",
+//                         focusedBorder: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(11),
+//                           borderSide: BorderSide(color: Colors.green,width: 4),
+//                         ),
+//                         border: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(11),
+//                           // borderSide: BorderSide(color: Colors.yellow),
+//
+//                         ),
+//                       prefixIcon: Icon(Icons.upcoming_sharp)
+//                     ),
+//                   ),
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: TextField(
+//                     // enabled: false,
+//                     controller: username,
+//                     decoration: InputDecoration(
+//                       hintText: "Enter Email",
+//                       focusedBorder: OutlineInputBorder(
+//                         borderRadius: BorderRadius.circular(11),
+//                         borderSide: BorderSide(color: Colors.green,width: 4),
+//                       ),
+//                       enabledBorder: OutlineInputBorder(
+//                         borderSide: BorderSide(
+//                           // color: Colors.amber,
+//                           // width: 4,
+//                         ),
+//                         borderRadius: BorderRadius.circular(11),
+//                       ),
+//                       disabledBorder: OutlineInputBorder(
+//                         borderRadius: BorderRadius.circular(11),
+//                         borderSide: BorderSide(color: Colors.black54,width: 4),
+//                       ),
+//                       // suffixText: "Username Exits",
+//                       suffixIcon: IconButton(
+//                         icon: Icon(Icons.remove_red_eye, color: Colors.red,),
+//                         onPressed: (){
+//
+//                         },
+//                       ),
+//                       // prefixText: "Enter Username ",
+//                       prefixIcon: Icon(Icons.email),
+//
+//                       // border: OutlineInputBorder(
+//                       //   borderRadius: BorderRadius.circular(11),
+//                       //   // borderSide: BorderSide(color: Colors.yellow),
+//                       //
+//                       // )
+//                     ),
+//                   ),
+//                 ),
+//
+//                 Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: TextField(
+//                     controller: password,
+//                     obscureText: true,
+//                     obscuringCharacter: "*",
+//                     decoration: InputDecoration(
+//                       hintText: "Enter Password",
+//                         focusedBorder: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(11),
+//                           borderSide: BorderSide(color: Colors.green,width: 4),
+//                         ),
+//                         prefixIcon: Icon(Icons.password_outlined),
+//
+//                         border: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(11),
+//                           // borderSide: BorderSide(color: Colors.yellow),
+//
+//                         )
+//                     ),
+//                   ),
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: TextField(
+//                     keyboardType: TextInputType.datetime,
+//                     controller: mobile_no,
+//                     decoration: InputDecoration(
+//                       hintText: "Enter Mobile Number",
+//                         focusedBorder: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(11),
+//                           borderSide: BorderSide(color: Colors.green,width: 4),
+//                         ),
+//
+//                         border: OutlineInputBorder(
+//                           borderRadius: BorderRadius.circular(11),
+//                           // borderSide: BorderSide(color: Colors.yellow),
+//
+//                         ),
+//                       prefixIcon: Icon(Icons.phone),
+//                     ),
+//                   ),
+//                 ),
+//                 Container(
+//                   color: Colors.cyan,
+//                   child: ElevatedButton(
+//                       onPressed: (){
+//                     String fname = name.text.toString();
+//                     String u_name = username.text.toString();
+//                     String u_pass = password.text.toString();
+//                     String m_no = mobile_no.text.toString();
+//                     print("Name: $fname, Email: $u_name, Pass: $u_pass, Mobile No.: $m_no");
+//                   }, child: Text('Sign Up',
+//                     style: TextStyle(fontSize: 21,color: Colors.black54),)
+//
+//                   ),
+//                 )
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
 
-                        },
-                      ),
-                      // prefixText: "Enter Username ",
-                      prefixIcon: Icon(Icons.email),
+// register end page
 
-                      // border: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(11),
-                      //   // borderSide: BorderSide(color: Colors.yellow),
-                      //
-                      // )
-                    ),
-                  ),
-                ),
+//  Date and time
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: password,
-                    obscureText: true,
-                    obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      hintText: "Enter Password",
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.green,width: 4),
-                        ),
-                        prefixIcon: Icon(Icons.password_outlined),
+    // body: Container(
+    //     height: 500,
+    //     child: ListView(
+    //       // child: Column(
+    //       //   mainAxisAlignment: MainAxisAlignment.center,
+    //         children: [
+    //           Text('Current Total Time: $time', style: TextStyle(fontSize: 20),),
+    //           Text('Current year: ${time.year}', style: TextStyle(fontSize: 20),),
+    //           Text('Current Month: ${time.month}', style: TextStyle(fontSize: 20),),
+    //           Text('Current Day: ${time.day}', style: TextStyle(fontSize: 20),),
+    //           Text('Current Week-Day: ${time.weekday}', style: TextStyle(fontSize: 20),),
+    //           Text('Current Hour: ${time.hour}', style: TextStyle(fontSize: 20),),
+    //           Text('Current minute: ${time.minute}', style: TextStyle(fontSize: 20),),
+    //           Text('Current Second: ${time.second}', style: TextStyle(fontSize: 20),),
+    //           Text('Formated Time: ${DateFormat('h:m:s').format(time)}', style: TextStyle(fontSize: 20),),
+    //           Text('Formated Time: ${DateFormat('jms').format(time)}', style: TextStyle(fontSize: 20),),
+    //           Text('Formated Time: ${DateFormat('yMMMd').format(time)}', style: TextStyle(fontSize: 20),),
+    //           Text('Formated Time: ${DateFormat('E').format(time)}', style: TextStyle(fontSize: 20),),
+    //
+    //           Container(
+    //             width: 10,
+    //
+    //
+    //             margin: EdgeInsets.only(top: 15),
+    //             color: Colors.black,
+    //             child: TextButton(
+    //
+    //                 onPressed: (){
+    //                   setState(() {
+    //
+    //                   });
+    //                 }, child: Text("Update Time", style: TextStyle(fontSize: 25,color: Colors.white),)),
+    //           )
+    //         ],
+    //
+    //             ),
+    //     ),
+    // ),
 
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          // borderSide: BorderSide(color: Colors.yellow),
+// Date picker
 
-                        )
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: mobile_no,
-                    decoration: InputDecoration(
-                      hintText: "Enter Mobile Number",
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          borderSide: BorderSide(color: Colors.green,width: 4),
-                        ),
-
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(11),
-                          // borderSide: BorderSide(color: Colors.yellow),
-
-                        )
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.cyan,
-                  child: ElevatedButton(
-                      onPressed: (){
-                    String fname = name.text.toString();
-                    String u_name = username.text.toString();
-                    String u_pass = password.text.toString();
-                    String m_no = mobile_no.text.toString();
-                    print("Name: $fname, Email: $u_name, Pass: $u_pass, Mobile No.: $m_no");
-                  }, child: Text('Sign Up',
-                    style: TextStyle(fontSize: 21,color: Colors.black54),)
-
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
+    body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("Select Date", style: TextStyle(fontSize: 21),),
+          Container(
+              color: Colors.green,
+              child: TextButton(onPressed: (){
+                DateTime? datepicked = await showDatePicker(
+                    context: context,
+                    firstDate: DateTime(2020),
+                    lastDate: DateTime(2024));
+              }, child: Text('done',style: TextStyle(color: Colors.black, fontSize: 21),)))
+        ],
       ),
+    )
     );
+
   }
 }
