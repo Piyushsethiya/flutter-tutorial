@@ -1,5 +1,7 @@
 // import 'dart:html';
 
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -36,6 +38,12 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
   var password = TextEditingController();
   var mobile_no = TextEditingController();
 //end portion
+
+// Grid portion
+
+  var arrcolor = [Colors.red,Colors.blue,Colors.purple,Colors.pinkAccent,Colors.black,Colors.amber,Colors.yellow,Colors.cyan,Colors.deepPurple];
+
+//end grid portion
 
   @override
   Widget build(BuildContext context){
@@ -299,7 +307,54 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
 // end picker
 
-    body: Text('Date and Time Picker Done'),
+// grid start
+// count
+
+    // body: GridView.count(crossAxisCount: 3,  // divide a part
+    // mainAxisSpacing: 21 ,   // spacing of horizontally
+    // crossAxisSpacing: 21,  // spacing of vertically
+    // children: [
+    //   Container(color: Colors.cyan,),
+    //   Container(color: Colors.green,),
+    //   Container(color: Colors.yellowAccent,),
+    //   Container(color: Colors.amber,),
+    //   Container(color: Colors.black,),
+    //   Container(color: Colors.pinkAccent,),
+    //   Container(color: Colors.blue,),
+    //   Container(color: Colors.purple,),
+    // ],
+    // )
+
+// Extend
+
+        // body: Container(
+        //   child: GridView.extent(maxCrossAxisExtent: 100,
+        //         crossAxisSpacing: 21,
+        //         mainAxisSpacing: 21,
+        //         children: [
+        //       Container(color: Colors.cyan,),
+        //       Container(color: Colors.green,),
+        //       Container(color: Colors.yellowAccent,),
+        //       Container(color: Colors.amber,),
+        //       Container(color: Colors.black,),
+        //       Container(color: Colors.pinkAccent,),
+        //       Container(color: Colors.blue,),
+        //       Container(color: Colors.purple,),
+        //       Container(color: Colors.blueGrey,),
+        //     ],
+        //   ),
+        // )
+
+// builder
+
+    body: GridView.builder( itemBuilder: (context, index){
+      return Container(color: arrcolor[index],);
+    },
+    itemCount: arrcolor.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 21, crossAxisSpacing: 21
+      // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200,mainAxisSpacing: 21, crossAxisSpacing: 21
+      ),
+    ),
 
     );
 
