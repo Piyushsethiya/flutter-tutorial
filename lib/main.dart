@@ -230,22 +230,77 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
 // Date picker
 
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Select Date", style: TextStyle(fontSize: 21),),
-          Container(
-              color: Colors.green,
-              child: TextButton(onPressed: (){
-                DateTime? datepicked = await showDatePicker(
-                    context: context,
-                    firstDate: DateTime(2020),
-                    lastDate: DateTime(2024));
-              }, child: Text('done',style: TextStyle(color: Colors.black, fontSize: 21),)))
-        ],
-      ),
-    )
+      // body: Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       Text("Select Date", style: TextStyle(fontSize: 21),),
+      //       Container(
+      //           color: Colors.green,
+      //           child: TextButton(onPressed: () async {
+      //             DateTime? datepicked = await showDatePicker(  // showDatePicker is selected on day
+      //                 context: context,
+      //                 initialDate: DateTime.now(),
+      //                 firstDate: DateTime(2020),
+      //                 lastDate: DateTime(2026));
+      //
+      //             if(datepicked != null){
+      //               print("Date Selected: ${datepicked.day}-${datepicked.month}-${datepicked.year}");
+      //             }
+      //           }, child: Text('show',style: TextStyle(color: Colors.black, fontSize: 21),)))
+      //     ],
+      //   ),
+      // )
+
+//Date and Time Picker
+
+      // body: ListView(
+      //   children: [
+      //     Text("Select Date", style: TextStyle(fontSize: 21),),
+      //     Container(
+      //         color: Colors.green,
+      //         child: TextButton(onPressed: () async {
+      //           DateTime? datepicked = await showDatePicker(  // showDatePicker is selected on day
+      //               context: context,
+      //               initialDate: DateTime.now(),
+      //               firstDate: DateTime(2020),
+      //               lastDate: DateTime(2026));
+      //
+      //           if(datepicked != null){
+      //             print("Date Selected: ${datepicked.day}-${datepicked.month}-${datepicked.year}");
+      //           }
+      //         },
+      //             child: Text('Date',style: TextStyle(color: Colors.black, fontSize: 21),))),
+      //     Text("Select Time", style: TextStyle(fontSize: 21),),
+      //     Padding(
+      //       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 150),
+      //       child: Container(
+      //         color: Colors.red,
+      //         child: TextButton(onPressed: () async {
+      //           TimeOfDay? Time = await showTimePicker(
+      //               context: context,
+      //               initialTime: TimeOfDay.now(),
+      //               initialEntryMode: TimePickerEntryMode.input // open input and dial
+      //               // initialEntryMode: TimePickerEntryMode.dial // open dial and input
+      //               // initialEntryMode: TimePickerEntryMode.inputOnly // only open input
+      //               // initialEntryMode: TimePickerEntryMode.dialOnly // only open dial
+      //           );
+      //           if(Time != null){
+      //             print("Selected Time: ${Time.hourOfPeriod}: ${Time.minute} ${Time.hour >= 12 ? "PM" : "AM"}");
+      //             // print("Selected Time: ${DateFormat('jms').format(Time as DateTime)}");
+      //           }
+      //         },
+      //             child: Text("Time", style: TextStyle(fontSize: 21, color: Colors.black),)),
+      //       ),
+      //     )
+      //   ],
+      // ),
+      // ),
+
+// end picker
+
+    body: Text('Date and Time Picker Done'),
+
     );
 
   }
