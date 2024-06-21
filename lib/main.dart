@@ -45,6 +45,12 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
 //end grid portion
 
+//callback portion
+
+  callback(){
+    print ("done Calling");
+  }
+
   @override
   Widget build(BuildContext context){
     var time = DateTime.now();
@@ -347,14 +353,30 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
 // builder
 
-      body: GridView.builder( itemBuilder: (context, index){
-        return Container(color: arrcolor[index],);
-      },
-        itemCount: arrcolor.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 21, crossAxisSpacing: 21
-          // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200,mainAxisSpacing: 21, crossAxisSpacing: 21
+      // body: GridView.builder( itemBuilder: (context, index){
+      //   return Container(color: arrcolor[index],);
+      // },
+      //   itemCount: arrcolor.length,
+      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 21, crossAxisSpacing: 21
+      //   //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 100,mainAxisSpacing: 21, crossAxisSpacing: 21
+      //   ),
+      // ),
+
+// callback function
+
+    body: Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          color: Colors.black,
+          child: TextButton(
+            child: Text("Click Me!",style: TextStyle(color: Colors.cyan),),
+            onPressed: callback,
+          ),
         ),
       ),
+    ),
+
 
     );
 
