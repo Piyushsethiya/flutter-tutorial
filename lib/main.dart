@@ -4,6 +4,7 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/login_pro.dart';
 import 'package:intl/intl.dart';
 
 void main(){
@@ -14,11 +15,12 @@ class DemoApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      initialRoute : 'login',
+      routes: {'login': (context) => Mylogin()},
       title: "main working",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.green
-
       ),
       home: DashBoardScreen(),
     );
