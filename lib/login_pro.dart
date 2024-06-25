@@ -23,8 +23,8 @@ class _MyloginState extends State<Mylogin> {
           children: [
             Container(
               child: Padding(
-                padding: const EdgeInsets.only(left: 35,top: 200),
-                child: Text('Login\nHere!', style: TextStyle(color: Colors.white54, fontSize: 33,fontWeight: FontWeight.bold),),
+                padding: const EdgeInsets.only(left: 35,top: 150),
+                child: Text('Login\nHere', style: TextStyle(color: Colors.white, fontSize: 33,fontWeight: FontWeight.bold),),
               ),
             ),
             SingleChildScrollView(
@@ -65,6 +65,9 @@ class _MyloginState extends State<Mylogin> {
                     //     }, child: Text('Login', style: TextStyle(color: Colors.black,fontSize: 21),),),
                     //   ),
                     // )
+                        SizedBox(
+                          height: 20,
+                        ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -77,6 +80,31 @@ class _MyloginState extends State<Mylogin> {
                             onPressed: (){},
                             icon: Icon(Icons.arrow_forward),
                           ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: (){
+                            Navigator.pushNamed(context, 'register');
+                          } ,
+                            child: Text("Sign Up",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Color(0xff4c505b)),
+                            ),
+                        ),
+                        TextButton(
+                          onPressed: (){} ,
+                            child: Text("Forget Password",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 18,
+                                  color: Color(0xff4c505b)),
+                            ),
                         )
                       ],
                     )

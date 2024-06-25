@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711827478657",
+    "project_id": "login-pro-5ecb3",
+    "storage_bucket": "login-pro-5ecb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711827478657:android:5fa104ce2d0d1b66c7d580",
+        "android_client_info": {
+          "package_name": "com.example.learn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvRgOirGzUHEtmgAYVXfEKigpsZ7rxTAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

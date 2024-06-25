@@ -2,12 +2,19 @@
 
 import 'dart:ffi';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:learn/login_pro.dart';
 import 'package:intl/intl.dart';
+import 'package:learn/register_pro.dart';
+// import 'package:learn/complete_pro/login.dart';
+import 'package:learn/complete_pro/wrapper.dart';
+// import 'package:learn/complete_pro/login.dart';
 
-void main(){
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(DemoApp());
 }
 
@@ -16,13 +23,15 @@ class DemoApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       initialRoute : 'login',
-      routes: {'login': (context) => Mylogin()},
+      routes: {'login': (context) => Mylogin(),'register': (context) => Myregister()},
       title: "main working",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.green
       ),
-      home: DashBoardScreen(),
+      // home: DashBoardScreen(),
+      home: Wrapper(),
+      // home: login(),
     );
   }
 }
@@ -349,15 +358,197 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
 // builder
 
-      body: GridView.builder( itemBuilder: (context, index){
-        return Container(color: arrcolor[index],);
-      },
-        itemCount: arrcolor.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 21, crossAxisSpacing: 21
-          // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200,mainAxisSpacing: 21, crossAxisSpacing: 21
-        ),
-      ),
+      // body: GridView.builder( itemBuilder: (context, index){
+      //   return Container(color: arrcolor[index],);
+      // },
+      //   itemCount: arrcolor.length,
+      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 21, crossAxisSpacing: 21
+      //     // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200,mainAxisSpacing: 21, crossAxisSpacing: 21
+      //   ),
+      // ),
 
+// callback function
+
+        // body: Center(
+        //   child: Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: Container(
+        //       color: Colors.black,
+        //       child: TextButton(
+        //         child: Text("Click Me!",style: TextStyle(color: Colors.cyan),),
+        //         onPressed: callback,
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+// stack widgets
+
+        // body: Container(
+        //   width: 300,
+        //   height: 300,
+        //   child: Stack(
+        //     children: [
+        //       Container(
+        //         width: 200,
+        //         height: 200,
+        //         color: Colors.orange,
+        //       ),
+        //       Positioned(
+        //         left: 21,
+        //         top: 21,
+        //         // height: 30,
+        //         // right: 15,
+        //         child: Container(
+        //           width: 200,
+        //           height: 200,
+        //           color: Colors.green,
+        //         ),
+        //       ),
+        //       Positioned(
+        //         left: 42,
+        //         top: 42,
+        //         // height: 30,
+        //         // right: 15,
+        //         child: Container(
+        //           width: 200,
+        //           height: 200,
+        //           color: Colors.red,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // )
+
+// sizedbox
+
+
+// body: Center(
+//       child: SizedBox(
+//         width: 200,
+//         height: 50,
+//         child: ElevatedButton(
+//           onPressed: (){
+//           },
+//           child: Text('Click', style: TextStyle(color: Colors.cyan),),
+//         ),
+//       ),
+//     )
+
+// expand sizedbox - it cover full screen for the max-height and max-width
+
+        // body: ConstrainedBox(
+        //   constraints: BoxConstraints(
+        //     maxHeight: 50,
+        //     maxWidth: 200,
+        //     minHeight: 30,
+        //     minWidth: 100,
+        //   ),
+        //   child: SizedBox.expand(
+        //     child: ElevatedButton(
+        //       onPressed: (){
+        //
+        //       },
+        //       child: Text('Click', style: TextStyle(color: Colors.cyan),),
+        //     ),
+        //   ),
+        // )
+
+// Shrink sizedbox - it cover full screen for the min-height and main-width
+
+        // body: ConstrainedBox(
+        //   constraints: BoxConstraints(
+        //     minHeight: 30,
+        //     minWidth: 100,
+        //     maxHeight: 80,
+        //     maxWidth: 400,
+        //   ),
+        //   child: SizedBox.shrink(
+        //     child: ElevatedButton(
+        //
+        //       onPressed: (){
+        //
+        //       },
+        //       child: Text('Click', style: TextStyle(color: Colors.cyan),),
+        //     ),
+        //   ),
+        // )
+
+// Square sizebox
+
+        // body: Center(
+        //   child: SizedBox.square(
+        //     dimension: 80,
+        //     child: ElevatedButton(
+        //
+        //       onPressed: (){
+        //
+        //       },
+        //       child: Text('Click', style: TextStyle(color: Colors.cyan),),
+        //     ),
+        //   ),
+        // )
+
+// Rich Text Widget
+
+// normal system spaning text
+//     body: Row(
+//       children: [
+//         Text('Hello   ',style: TextStyle(fontSize: 16, color: Colors.green),),
+//         Text('World!',style: TextStyle(fontSize: 34, color: Colors.blue,fontWeight: FontWeight.bold),)
+//       ],
+//     ),
+
+//main Rich Text widget
+
+        // body: RichText(
+        //   text: TextSpan(
+        //     style: TextStyle(
+        //       fontSize: 21,
+        //       fontWeight: FontWeight.w700,
+        //       fontFamily: 'Cus_font',
+        //       color: Colors.blue
+        //     ),
+        //     children:<TextSpan> [
+        //       TextSpan(text: 'hello ',style: TextStyle(fontSize: 26)),
+        //       TextSpan(text: 'World, ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 31)),
+        //       TextSpan(text: 'Proper ',style: TextStyle(color: Colors.green)),
+        //       TextSpan(text: 'Work. ',style: TextStyle(color: Colors.red)),
+        //     ]
+        //   ),
+        // ),
+
+// Icon Widget
+
+        // body: Center(
+        //   child: Icon(
+        //     Icons.schedule,
+        //     size: 50,
+        //     color: Colors.red,
+        //   ),
+        // ),
+
+// Positioned Widget
+
+        body:Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: Colors.greenAccent,
+          child: Stack(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                color: Colors.white70,
+              ),
+              Container(
+                width: 200,
+                height: 100,
+                color: Colors.black12,
+              )
+            ],
+          ),
+        )
     );
 
   }
