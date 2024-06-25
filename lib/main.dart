@@ -1,7 +1,10 @@
 // import 'dart:html';
 
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:learn/login_pro.dart';
 import 'package:intl/intl.dart';
 
 void main(){
@@ -12,11 +15,12 @@ class DemoApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      initialRoute : 'login',
+      routes: {'login': (context) => Mylogin()},
       title: "main working",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.green
-
       ),
       home: DashBoardScreen(),
     );
@@ -37,9 +41,15 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
   var mobile_no = TextEditingController();
 //end portion
 
+// Grid portion
+
+  var arrcolor = [Colors.red,Colors.blue,Colors.purple,Colors.pinkAccent,Colors.black,Colors.amber,Colors.yellow,Colors.cyan,Colors.deepPurple];
+
+//end grid portion
+
   @override
   Widget build(BuildContext context){
-  var time = DateTime.now();
+    var time = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         title: Text("Register"),
@@ -189,112 +199,164 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
 //  Date and time
 
-    // body: Container(
-    //     height: 500,
-    //     child: ListView(
-    //       // child: Column(
-    //       //   mainAxisAlignment: MainAxisAlignment.center,
-    //         children: [
-    //           Text('Current Total Time: $time', style: TextStyle(fontSize: 20),),
-    //           Text('Current year: ${time.year}', style: TextStyle(fontSize: 20),),
-    //           Text('Current Month: ${time.month}', style: TextStyle(fontSize: 20),),
-    //           Text('Current Day: ${time.day}', style: TextStyle(fontSize: 20),),
-    //           Text('Current Week-Day: ${time.weekday}', style: TextStyle(fontSize: 20),),
-    //           Text('Current Hour: ${time.hour}', style: TextStyle(fontSize: 20),),
-    //           Text('Current minute: ${time.minute}', style: TextStyle(fontSize: 20),),
-    //           Text('Current Second: ${time.second}', style: TextStyle(fontSize: 20),),
-    //           Text('Formated Time: ${DateFormat('h:m:s').format(time)}', style: TextStyle(fontSize: 20),),
-    //           Text('Formated Time: ${DateFormat('jms').format(time)}', style: TextStyle(fontSize: 20),),
-    //           Text('Formated Time: ${DateFormat('yMMMd').format(time)}', style: TextStyle(fontSize: 20),),
-    //           Text('Formated Time: ${DateFormat('E').format(time)}', style: TextStyle(fontSize: 20),),
-    //
-    //           Container(
-    //             width: 10,
-    //
-    //
-    //             margin: EdgeInsets.only(top: 15),
-    //             color: Colors.black,
-    //             child: TextButton(
-    //
-    //                 onPressed: (){
-    //                   setState(() {
-    //
-    //                   });
-    //                 }, child: Text("Update Time", style: TextStyle(fontSize: 25,color: Colors.white),)),
-    //           )
-    //         ],
-    //
-    //             ),
-    //     ),
-    // ),
+      // body: Container(
+      //     height: 500,
+      //     child: ListView(
+      //       // child: Column(
+      //       //   mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Text('Current Total Time: $time', style: TextStyle(fontSize: 20),),
+      //           Text('Current year: ${time.year}', style: TextStyle(fontSize: 20),),
+      //           Text('Current Month: ${time.month}', style: TextStyle(fontSize: 20),),
+      //           Text('Current Day: ${time.day}', style: TextStyle(fontSize: 20),),
+      //           Text('Current Week-Day: ${time.weekday}', style: TextStyle(fontSize: 20),),
+      //           Text('Current Hour: ${time.hour}', style: TextStyle(fontSize: 20),),
+      //           Text('Current minute: ${time.minute}', style: TextStyle(fontSize: 20),),
+      //           Text('Current Second: ${time.second}', style: TextStyle(fontSize: 20),),
+      //           Text('Formated Time: ${DateFormat('h:m:s').format(time)}', style: TextStyle(fontSize: 20),),
+      //           Text('Formated Time: ${DateFormat('jms').format(time)}', style: TextStyle(fontSize: 20),),
+      //           Text('Formated Time: ${DateFormat('yMMMd').format(time)}', style: TextStyle(fontSize: 20),),
+      //           Text('Formated Time: ${DateFormat('E').format(time)}', style: TextStyle(fontSize: 20),),
+      //
+      //           Container(
+      //             width: 10,
+      //
+      //
+      //             margin: EdgeInsets.only(top: 15),
+      //             color: Colors.black,
+      //             child: TextButton(
+      //
+      //                 onPressed: (){
+      //                   setState(() {
+      //
+      //                   });
+      //                 }, child: Text("Update Time", style: TextStyle(fontSize: 25,color: Colors.white),)),
+      //           )
+      //         ],
+      //
+      //             ),
+      //     ),
+      // ),
 
 // Date picker
 
-        // body: Center(
-        //   child: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     children: [
-        //       Text("Select Date", style: TextStyle(fontSize: 21),),
-        //       Container(
-        //           color: Colors.green,
-        //           child: TextButton(onPressed: () async {
-        //             DateTime? datepicked = await showDatePicker(  // showDatePicker is selected on day
-        //                 context: context,
-        //                 initialDate: DateTime.now(),
-        //                 firstDate: DateTime(2020),
-        //                 lastDate: DateTime(2026));
-        //
-        //             if(datepicked != null){
-        //               print("Date Selected: ${datepicked.day}-${datepicked.month}-${datepicked.year}");
-        //             }
-        //           }, child: Text('show',style: TextStyle(color: Colors.black, fontSize: 21),)))
-        //     ],
-        //   ),
-        // )
+      // body: Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: [
+      //       Text("Select Date", style: TextStyle(fontSize: 21),),
+      //       Container(
+      //           color: Colors.green,
+      //           child: TextButton(onPressed: () async {
+      //             DateTime? datepicked = await showDatePicker(  // showDatePicker is selected on day
+      //                 context: context,
+      //                 initialDate: DateTime.now(),
+      //                 firstDate: DateTime(2020),
+      //                 lastDate: DateTime(2026));
+      //
+      //             if(datepicked != null){
+      //               print("Date Selected: ${datepicked.day}-${datepicked.month}-${datepicked.year}");
+      //             }
+      //           }, child: Text('show',style: TextStyle(color: Colors.black, fontSize: 21),)))
+      //     ],
+      //   ),
+      // )
 
 //Date and Time Picker
 
-        body: ListView(
-          // child: Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Select Date", style: TextStyle(fontSize: 21),),
-                Container(
-                    color: Colors.green,
-                    child: TextButton(onPressed: () async {
-                      DateTime? datepicked = await showDatePicker(  // showDatePicker is selected on day
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(2020),
-                          lastDate: DateTime(2026));
+      // body: ListView(
+      //   children: [
+      //     Text("Select Date", style: TextStyle(fontSize: 21),),
+      //     Container(
+      //         color: Colors.green,
+      //         child: TextButton(onPressed: () async {
+      //           DateTime? datepicked = await showDatePicker(  // showDatePicker is selected on day
+      //               context: context,
+      //               initialDate: DateTime.now(),
+      //               firstDate: DateTime(2020),
+      //               lastDate: DateTime(2026));
+      //
+      //           if(datepicked != null){
+      //             print("Date Selected: ${datepicked.day}-${datepicked.month}-${datepicked.year}");
+      //           }
+      //         },
+      //             child: Text('Date',style: TextStyle(color: Colors.black, fontSize: 21),))),
+      //     Text("Select Time", style: TextStyle(fontSize: 21),),
+      //     Padding(
+      //       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 150),
+      //       child: Container(
+      //         color: Colors.red,
+      //         child: TextButton(onPressed: () async {
+      //           TimeOfDay? Time = await showTimePicker(
+      //               context: context,
+      //               initialTime: TimeOfDay.now(),
+      //               initialEntryMode: TimePickerEntryMode.input // open input and dial
+      //               // initialEntryMode: TimePickerEntryMode.dial // open dial and input
+      //               // initialEntryMode: TimePickerEntryMode.inputOnly // only open input
+      //               // initialEntryMode: TimePickerEntryMode.dialOnly // only open dial
+      //           );
+      //           if(Time != null){
+      //             print("Selected Time: ${Time.hourOfPeriod}: ${Time.minute} ${Time.hour >= 12 ? "PM" : "AM"}");
+      //             // print("Selected Time: ${DateFormat('jms').format(Time as DateTime)}");
+      //           }
+      //         },
+      //             child: Text("Time", style: TextStyle(fontSize: 21, color: Colors.black),)),
+      //       ),
+      //     )
+      //   ],
+      // ),
+      // ),
 
-                      if(datepicked != null){
-                        print("Date Selected: ${datepicked.day}-${datepicked.month}-${datepicked.year}");
-                      }
-                    },
-                    child: Text('Date',style: TextStyle(color: Colors.black, fontSize: 21),))),
-                Text("Select Time", style: TextStyle(fontSize: 21),),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 100),
-                  child: Container(
-                    color: Colors.red,
-                    child: TextButton(onPressed: () async {
-                      TimeOfDay? Time = await showTimePicker(
-                          context: context,
-                          initialTime: TimeOfDay.now(),
-                          initialEntryMode: TimePickerEntryMode.input
-                      );
-                       if(Time != null){
-                         // print("Selected Time: ${Time.hourOfPeriod}: ${Time.minute} ${Time.hour >= 12 ? "PM" : "AM"}");
-                         print("Selected Time: ${DateFormat('jms').format(Time as DateTime)}");
-                       }
-                    },
-                        child: Text("Time", style: TextStyle(fontSize: 21, color: Colors.black),)),
-                  ),
-                )
-              ],
-            ),
-        // ),
+// end picker
+
+// grid start
+// count
+
+      // body: GridView.count(crossAxisCount: 3,  // divide a part
+      // mainAxisSpacing: 21 ,   // spacing of horizontally
+      // crossAxisSpacing: 21,  // spacing of vertically
+      // children: [
+      //   Container(color: Colors.cyan,),
+      //   Container(color: Colors.green,),
+      //   Container(color: Colors.yellowAccent,),
+      //   Container(color: Colors.amber,),
+      //   Container(color: Colors.black,),
+      //   Container(color: Colors.pinkAccent,),
+      //   Container(color: Colors.blue,),
+      //   Container(color: Colors.purple,),
+      // ],
+      // )
+
+// Extend
+
+      // body: Container(
+      //   child: GridView.extent(maxCrossAxisExtent: 100,
+      //         crossAxisSpacing: 21,
+      //         mainAxisSpacing: 21,
+      //         children: [
+      //       Container(color: Colors.cyan,),
+      //       Container(color: Colors.green,),
+      //       Container(color: Colors.yellowAccent,),
+      //       Container(color: Colors.amber,),
+      //       Container(color: Colors.black,),
+      //       Container(color: Colors.pinkAccent,),
+      //       Container(color: Colors.blue,),
+      //       Container(color: Colors.purple,),
+      //       Container(color: Colors.blueGrey,),
+      //     ],
+      //   ),
+      // )
+
+// builder
+
+      body: GridView.builder( itemBuilder: (context, index){
+        return Container(color: arrcolor[index],);
+      },
+        itemCount: arrcolor.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 21, crossAxisSpacing: 21
+          // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 200,mainAxisSpacing: 21, crossAxisSpacing: 21
+        ),
+      ),
 
     );
 
