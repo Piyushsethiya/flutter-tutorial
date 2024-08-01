@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 Future<void> login(BuildContext context, String email, String password) async {
   try {
     final url = Uri.parse('http://localhost:8080/shop/api/login');
-    final response = await http.post(url, body: {
+      final response = await http.post(url, body: {
       'email': email,
       'password': password,
     });
