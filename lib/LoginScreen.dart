@@ -28,8 +28,6 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {
                 final email = emailController.text;
                 final password = passwordController.text;
-                print('Email: $email');
-                print('Password: $password');
                 login(context, email, password);  // Call the login function
               },
               child: Text('Login'),

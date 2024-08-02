@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 Future<void> login(BuildContext context, String email, String password) async {
+  print(email);
   try {
-    final url = Uri.parse('http://localhost:8080/shop/api/login');
-      final response = await http.post(url, body: {
+    final url = Uri.parse('http://10.0.2.2:8080/shop/api/login'); // Use appropriate IP for your setup
+    final response = await http.post(url, body: {
       'email': email,
       'password': password,
     });
     print('Response data: ${response}');
     print('Response body: ${response.body}');
-
     print('Response status: ${response.statusCode}');
 
     if (response.statusCode == 200) {
