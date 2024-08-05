@@ -42,18 +42,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
 //container and center
 
-      // body:Center(
-      //   child: Container(
-      //     width: 200,
-      //     height: 200,
-      //     color: Colors.blueAccent.shade100,
-      //     child: Center(
-      //         child: Text(
-      //           "This is Center of Container", style: TextStyle(color: Colors.white),
-      //         )
-      //     ),
-      //   )
-      // )
+      body:Center(
+        child: Container(
+          width: 200,
+          height: 200,
+          color: Colors.blueAccent.shade100,
+          child: Center(
+              child: Text(
+                "This is Center of Container", style: TextStyle(color: Colors.white),
+              )
+          ),
+        )
+      )
 
 //text
 

@@ -14,17 +14,17 @@ class DemoApp extends StatelessWidget{
       theme: ThemeData(
           primarySwatch: Colors.yellow
       ),
-      home: DashBoardScreen(),
+      home: listView(),
     );
   }
 }
 
-class DashBoardScreen extends StatefulWidget{
+class listView extends StatefulWidget{
   @override
-  _DashBoardScreenState createState() => _DashBoardScreenState();
+  _listViewState createState() => _listViewState();
 }
 
-class _DashBoardScreenState extends State<DashBoardScreen>{
+class _listViewState extends State<listView>{
   @override
   Widget build(BuildContext context){
 
@@ -33,7 +33,7 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("DashBoard"),
+        title: Text("List View"),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         centerTitle: true,
