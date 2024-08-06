@@ -15,12 +15,10 @@ class DemoApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      initialRoute : 'login',
-      routes: {'login': (context) => Mylogin(),'register': (context) => Myregister()},
       title: "main working",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.green
+          primarySwatch: Colors.blue
       ),
       initialRoute: '/',
       routes: {
@@ -45,7 +43,6 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
   var password = TextEditingController();
   @override
   Widget build(BuildContext context){
-    var time = DateTime.now();
     return Scaffold(
       appBar: AppBar(
         title: Text("DashBoard"),
@@ -66,36 +63,36 @@ class _DashBoardScreenState extends State<DashBoardScreen>{
                   // enabled: false,
                   controller: username,
                   decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                        borderSide: BorderSide(color: Colors.green,width: 4),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(11),
+                      borderSide: BorderSide(color: Colors.green,width: 4),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.amber,
+                        width: 4,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colors.amber,
-                          width: 4,
-                        ),
-                        borderRadius: BorderRadius.circular(11),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11),
-                        borderSide: BorderSide(color: Colors.black54,width: 4),
-                      ),
-                      // suffixText: "Username Exits",
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.remove_red_eye, color: Colors.red,),
-                        onPressed: (){
+                      borderRadius: BorderRadius.circular(11),
+                    ),
+                    disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(11),
+                      borderSide: BorderSide(color: Colors.black54,width: 4),
+                    ),
+                    // suffixText: "Username Exits",
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.remove_red_eye, color: Colors.red,),
+                      onPressed: (){
 
-                        },
-                      ),
-                      prefixText: "Enter Username ",
-                      prefixIcon: Icon(Icons.email),
+                      },
+                    ),
+                    prefixText: "Enter Username ",
+                    prefixIcon: Icon(Icons.email),
 
-                      // border: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(11),
-                      //   // borderSide: BorderSide(color: Colors.yellow),
-                      //
-                      // )
+                    // border: OutlineInputBorder(
+                    //   borderRadius: BorderRadius.circular(11),
+                    //   // borderSide: BorderSide(color: Colors.yellow),
+                    //
+                    // )
                   ),
                 ),
               ),

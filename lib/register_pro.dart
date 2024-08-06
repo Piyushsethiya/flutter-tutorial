@@ -42,7 +42,7 @@ class _MyregisterState extends State<Myregister> {
                           fillColor: Colors.transparent,
                           filled: true,
                           hintText: 'Name',
-                          hintStyle: TextStyle(color: Colors.white70),
+                          hintStyle: TextStyle(color: Colors.black54),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
@@ -66,7 +66,7 @@ class _MyregisterState extends State<Myregister> {
                           fillColor: Colors.transparent,
                           filled: true,
                           hintText: 'Email',
-                          hintStyle: TextStyle(color: Colors.white70),
+                          hintStyle: TextStyle(color: Colors.black54),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.white,
@@ -92,7 +92,7 @@ class _MyregisterState extends State<Myregister> {
                           fillColor: Colors.transparent,
                           filled: true,
                           hintText: 'Password',
-                          hintStyle: TextStyle(color: Colors.white70),
+                          hintStyle: TextStyle(color: Colors.black54),
                           enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.white,
